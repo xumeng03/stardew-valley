@@ -1,0 +1,49 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="stardew valley"
+run/main_scene="uid://b6vstj0qdpya0"
+config/features=PackedStringArray("4.5", "Forward Plus")
+config/icon="res://icon.svg"
+
+[autoload]
+
+Init="*res://glabal/init.gd"
+Enums="*res://glabal/enums.gd"
+Data="*res://glabal/data.gd"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+
+[input]
+
+left={
+"deadzone": 0.2,
+"events": []
+}
+rigjt={
+"deadzone": 0.2,
+"events": []
+}
+
+[layer_names]
+
+2d_render/layer_1="Terrain"
+2d_render/layer_2="Player"
+2d_render/layer_3="Objects"
+2d_render/layer_4="Characters"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0

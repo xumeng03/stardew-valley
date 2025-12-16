@@ -1,0 +1,28 @@
+# Godot 4+
+.godot/
+
+# Godot 3
+.import/
+
+# 导出和构建
+/export/
+/build/
+/dist/
+
+# Mono / C#
+.mono/
+data_*/
+
+# 系统文件
+.DS_Store
+Thumbs.db
+*.log
+
+# IDE
+.vscode/
+.idea/
+
+# 临时文件
+*.tmp
+*.bak
+*~
