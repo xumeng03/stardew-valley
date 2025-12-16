@@ -2,14 +2,63 @@ extends CharacterBody2D
 
 
 var direction: Vector2
+var last_direction := Vector2.DOWN
+var switch_direction: int
 var speed := 60
+var behavior_index := 0
+var can_move := true
+@onready var animation_tree = $Animation/AnimationTree
+@onready var move_state_machine: AnimationNodeStateMachinePlayback = animation_tree.get("parameters/MoveStateMachine/playback")
+@onready var behavior_state_machine: AnimationNodeStateMachinePlayback = animation_tree.get("parameters/BehaviorStateMachine/playback")
 
 
 func _physics_process(_delta: float) -> void:
-	direction = Input.get_vector("left", "right", "up", "down")
+	if can_move:
+		# process direction,behavior switch action information
+		process_input()
+		# use direction reset move_state_machine
+		process_move_state_machine()
+		# use behavior reset behavior_state_machine
+		process_behavior_state_machine()
+		# process action action information
+		process_behavior()
+		# character movement
+		process_move()
+
+func process_input():
+	direction = Input.get_vector(DATA.ACTIONS_LEFT, DATA.ACTIONS_RIGHT, DATA.ACTIONS_UP, DATA.ACTIONS_DOWN)
+
+	if Input.is_action_just_pressed(DATA.ACTIONS_BEHAVIOR_SWITCH_PREVIOUS) or Input.is_action_just_pressed(DATA.ACTIONS_BEHAVIOR_SWITCH_NEXT):
+		switch_direction = sign(Input.get_axis(DATA.ACTIONS_BEHAVIOR_SWITCH_PREVIOUS, DATA.ACTIONS_BEHAVIOR_SWITCH_NEXT))
+		behavior_index = posmod(behavior_index + switch_direction, DATA.ANIMATIONS.size())
+		# print(switch_direction," ", behavior_index)
+
+func process_move_state_machine():
 	if direction:
-		$Animation/AnimationTree.set("parameters/RunBlendSpace2D/blend_position", direction)
+		move_state_machine.travel("RunBlendSpace2D")
+		animation_tree.set("parameters/MoveStateMachine/RunBlendSpace2D/blend_position", direction)
+		animation_tree.set("parameters/MoveStateMachine/IdleBlendSpace2D/blend_position", direction)
+		for animation in DATA.ANIMATIONS:
+			animation_tree.set("parameters/BehaviorStateMachine/" + animation.capitalize() + "BlendSpace2D/blend_position", direction)
 	else:
-		$Animation/AnimationTree.set("parameters/RunBlendSpace2D/blend_position", Vector2.ZERO)
+		move_state_machine.travel("IdleBlendSpace2D")
+
+func process_behavior_state_machine():
+	var behavior_name = DATA.ANIMATIONS[behavior_index].capitalize()
+	behavior_state_machine.travel(behavior_name + "BlendSpace2D")
+
+func process_behavior():
+	if Input.is_action_just_pressed(DATA.ACTIONS_ACTION):
+		animation_tree.set("parameters/OneShot/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
+
+func process_move():
 	velocity = direction * speed
 	move_and_slide()
+
+
+func _on_animation_tree_animation_started(_anim_name: StringName) -> void:
+	can_move = false
+
+
+func _on_animation_tree_animation_finished(_anim_name: StringName) -> void:
+	can_move = true

@@ -18,8 +18,8 @@ config/icon="res://icon.svg"
 [autoload]
 
 Init="*res://glabal/init.gd"
-Enums="*res://glabal/enums.gd"
-Data="*res://glabal/data.gd"
+ENUM="*res://glabal/enums.gd"
+DATA="*res://glabal/data.gd"
 
 [display]
 

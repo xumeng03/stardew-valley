@@ -3,8 +3,11 @@ extends Node
 
 func _ready() -> void:
 	InputMapUtil.add_actions({
-		"left": KEY_A,
-		"right": KEY_D,
-		"up": KEY_W,
-	   	"down": KEY_S
+		DATA.ACTIONS_LEFT: KEY_A,
+		DATA.ACTIONS_RIGHT: KEY_D,
+		DATA.ACTIONS_UP: KEY_W,
+	   	DATA.ACTIONS_DOWN: KEY_S,
+		DATA.ACTIONS_ACTION: KEY_SPACE,
+		DATA.ACTIONS_BEHAVIOR_SWITCH_PREVIOUS: KEY_Q,
+	   	DATA.ACTIONS_BEHAVIOR_SWITCH_NEXT: KEY_E
 	})
