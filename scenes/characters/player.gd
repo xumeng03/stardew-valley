@@ -4,7 +4,7 @@ extends CharacterBody2D
 var direction: Vector2
 var last_direction := Vector2.DOWN
 var switch_direction: int
-var speed := 60
+@export var speed := 60
 var behavior_index := 0
 var can_move := true
 @onready var animation_tree = $Animation/AnimationTree

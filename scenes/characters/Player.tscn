@@ -528,6 +528,7 @@ node_connections = [&"output", 0, &"OneShot", &"OneShot", 0, &"MoveStateMachine"
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_gin2a")
+speed = 150
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_pq8s5")
