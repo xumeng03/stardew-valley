@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 
 var direction: Vector2
-var last_direction := Vector2.DOWN
+var last_direction := Vector2.ZERO
 var switch_direction: int
 @export var speed := 60
 var behavior_index := 0
@@ -11,6 +11,8 @@ var can_move := true
 @onready var move_state_machine: AnimationNodeStateMachinePlayback = animation_tree.get("parameters/MoveStateMachine/playback")
 @onready var behavior_state_machine: AnimationNodeStateMachinePlayback = animation_tree.get("parameters/BehaviorStateMachine/playback")
 
+signal behavior_signal(bi: int, pos: Vector2)
+signal move_signal(pos: Vector2)
 
 func _physics_process(_delta: float) -> void:
 	if can_move:
@@ -24,6 +26,7 @@ func _physics_process(_delta: float) -> void:
 		process_behavior()
 		# character movement
 		process_move()
+	move_signal.emit(position + Vector2(0, 4))
 
 func process_input():
 	direction = Input.get_vector(DATA.ACTIONS_LEFT, DATA.ACTIONS_RIGHT, DATA.ACTIONS_UP, DATA.ACTIONS_DOWN)
@@ -35,6 +38,7 @@ func process_input():
 
 func process_move_state_machine():
 	if direction:
+		last_direction = direction
 		move_state_machine.travel("RunBlendSpace2D")
 		animation_tree.set("parameters/MoveStateMachine/RunBlendSpace2D/blend_position", direction)
 		animation_tree.set("parameters/MoveStateMachine/IdleBlendSpace2D/blend_position", direction)
@@ -55,10 +59,13 @@ func process_move():
 	velocity = direction * speed
 	move_and_slide()
 
-
 func _on_animation_tree_animation_started(_anim_name: StringName) -> void:
 	can_move = false
 
 
 func _on_animation_tree_animation_finished(_anim_name: StringName) -> void:
 	can_move = true
+
+func _on_behavior():
+	# print(DATA.ANIMATIONS[behavior_index].capitalize())
+	behavior_signal.emit(behavior_index, position + Vector2(0, 4))

@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=4 uid="uid://bt0h0jaj0t0oi"]
+[gd_scene load_steps=13 format=4 uid="uid://bt0h0jaj0t0oi"]
 
 [ext_resource type="Texture2D" uid="uid://btjm70t465yud" path="res://assets/world/farm/grass.png" id="1_12bec"]
 [ext_resource type="Texture2D" uid="uid://c538mgtbrrx4t" path="res://assets/world/farm/water.png" id="1_hek10"]
 [ext_resource type="Texture2D" uid="uid://sfyphoo2wh48" path="res://assets/world/farm/soil.png" id="2_krvku"]
+[ext_resource type="Texture2D" uid="uid://0dkn7y6b4qev" path="res://assets/world/farm/high_light.png" id="4_hfo5h"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hfo5h"]
 texture = ExtResource("1_hek10")
@@ -814,6 +815,21 @@ terrain_set_0/terrain_0/name = "Soil"
 terrain_set_0/terrain_0/color = Color(0.2812228, 0.7494532, 0.9493126, 1)
 sources/0 = SubResource("TileSetAtlasSource_hek10")
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_52ivh"]
+texture = ExtResource("4_hfo5h")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_rheot"]
+sources/0 = SubResource("TileSetAtlasSource_52ivh")
+
 [node name="Farm" type="Node2D"]
 
 [node name="WaterTileMapLayer" type="TileMapLayer" parent="."]
@@ -827,3 +843,7 @@ tile_set = SubResource("TileSet_hek10")
 [node name="SoilTileMapLayer" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAD///n/AAAAAAAAAAAAAPn/AAACAAAAAAAAAPr/AAAFAAIAAAABAPr/AAABAAAAAAABAPv/AAABAAIAAAACAPv/AAABAAIAAAADAPv/AAABAAIAAAAEAPv/AAAGAAEAAAAEAPz/AAAAAAIAAAAFAPz/AAABAAIAAAAGAPz/AAACAAIAAAACAPr/AAABAAAAAAADAPr/AAABAAAAAAAEAPr/AAABAAAAAAAFAPr/AAABAAAAAAAGAPr/AAACAAAAAAAFAPv/AAABAAQAAAAGAPv/AAACAAEAAAAAAPv/AAABAAIAAAD///r/AAAAAAEAAAD///v/AAAAAAIAAAA=")
 tile_set = SubResource("TileSet_hfo5h")
+
+[node name="HighLightTileMapLayer" type="TileMapLayer" parent="."]
+visible = false
+tile_set = SubResource("TileSet_rheot")
