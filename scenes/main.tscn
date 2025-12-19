@@ -9,6 +9,8 @@ script = ExtResource("1_sugp2")
 
 [node name="Farm" parent="." instance=ExtResource("1_0wfyh")]
 
+[node name="Plants" type="Node" parent="Farm"]
+
 [node name="Player" parent="." instance=ExtResource("1_o5qli")]
 
 [connection signal="behavior_signal" from="Player" to="." method="_on_player_behavior_signal"]

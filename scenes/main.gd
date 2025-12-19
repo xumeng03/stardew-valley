@@ -1,6 +1,15 @@
 extends Node2D
 
+@onready var Plants = $Farm/Plants
+var wheat_plant_scene = preload("res://scenes/plants/wheat.tscn")
 var previous_highlight_tile: Vector2i = Vector2i(-999, -999)
+var plants: Array[Node2D] = []
+
+func cell_has_plant(grid: Vector2i) -> bool:
+	for plant in plants:
+		if plant.position.x == grid.x and plant.position.y == grid.y:
+			return true
+	return false
 
 func _on_player_behavior_signal(bi: int, pos: Vector2) -> void:
 	var grid: Vector2i = Vector2i(floor(pos.x / DATA.TILE_SIZE), floor(pos.y / DATA.TILE_SIZE))
@@ -21,11 +30,12 @@ func _on_player_behavior_signal(bi: int, pos: Vector2) -> void:
 			print("can't fish here")
 	if bi == 5:
 		var tile_data = $Farm/SoilTileMapLayer.get_cell_tile_data(grid) as TileData
-		if tile_data:
-			print("can seed here")
-		else:
-			print("can't seed here")
-
+		var plant_position = grid * DATA.TILE_SIZE + Vector2i(8, 12)
+		if tile_data and not cell_has_plant(plant_position):
+			var wheat_plant = wheat_plant_scene.instantiate()
+			wheat_plant.position = plant_position
+			Plants.add_child(wheat_plant)
+			plants.append(wheat_plant)
 
 func _on_player_move_signal(pos: Vector2) -> void:
 	var grid: Vector2i = Vector2i(floor(pos.x / DATA.TILE_SIZE), floor(pos.y / DATA.TILE_SIZE))

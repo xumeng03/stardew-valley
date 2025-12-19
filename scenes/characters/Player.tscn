@@ -6,7 +6,7 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pq8s5"]
 radius = 4.0
-height = 14.0
+height = 8.0
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gquc1"]
 animation = &"axe_down"

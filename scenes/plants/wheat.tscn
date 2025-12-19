@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://b5rdsia667i3a"]
+
+[ext_resource type="Texture2D" uid="uid://dkss8nget74wr" path="res://assets/plants/wheat.png" id="1_yfabo"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hodiq"]
+radius = 3.0
+
+[node name="Wheat" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -16)
+texture = ExtResource("1_yfabo")
+hframes = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -4)
+shape = SubResource("CircleShape2D_hodiq")
