@@ -12,6 +12,19 @@ func _on_player_behavior_signal(bi: int, pos: Vector2) -> void:
 		var tile_data = $Farm/SoilTileMapLayer.get_cell_tile_data(grid) as TileData
 		if tile_data:
 			$Farm/SoilWaterTileMapLayer.set_cell(grid, 0, Vector2i(randi_range(0, 2), 0), 0)
+	if bi == 4:
+		var gress_tile_data = $Farm/GressTileMapLayer.get_cell_tile_data(grid) as TileData
+		var soil_tile_data = $Farm/SoilTileMapLayer.get_cell_tile_data(grid) as TileData
+		if not gress_tile_data and not soil_tile_data:
+			print("can fish here")
+		else:
+			print("can't fish here")
+	if bi == 5:
+		var tile_data = $Farm/SoilTileMapLayer.get_cell_tile_data(grid) as TileData
+		if tile_data:
+			print("can seed here")
+		else:
+			print("can't seed here")
 
 
 func _on_player_move_signal(pos: Vector2) -> void:
