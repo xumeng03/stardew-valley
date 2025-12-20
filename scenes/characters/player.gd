@@ -38,6 +38,7 @@ func process_input():
 		switch_direction = sign(Input.get_axis(DATA.ACTIONS_BEHAVIOR_SWITCH_PREVIOUS, DATA.ACTIONS_BEHAVIOR_SWITCH_NEXT))
 		behavior_index = posmod(behavior_index + switch_direction, DATA.ANIMATIONS.size())
 		# print(switch_direction," ", behavior_index)
+		$ToolUI.show_tool_ui(behavior_index)
 
 func process_move_state_machine():
 	if direction:

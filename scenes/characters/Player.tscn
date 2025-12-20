@@ -1,8 +1,9 @@
-[gd_scene load_steps=129 format=3 uid="uid://do87kvhm0k4s6"]
+[gd_scene load_steps=130 format=3 uid="uid://do87kvhm0k4s6"]
 
 [ext_resource type="Script" uid="uid://dwmt4nw324xhb" path="res://scenes/characters/player.gd" id="1_gin2a"]
 [ext_resource type="Texture2D" uid="uid://1wbtvpo8fkn5" path="res://assets/characters/player/basic.png" id="1_pq8s5"]
 [ext_resource type="AnimationLibrary" uid="uid://5b00yw1xk2mt" path="res://scenes/characters/player_animation.res" id="3_7n8ao"]
+[ext_resource type="PackedScene" uid="uid://d3buj6baj0775" path="res://scenes/UI/ToolUI.tscn" id="4_7wym0"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pq8s5"]
 radius = 4.0
@@ -531,12 +532,14 @@ collision_layer = 2
 collision_mask = 5
 script = ExtResource("1_gin2a")
 
+[node name="ToolUI" parent="." instance=ExtResource("4_7wym0")]
+anchors_preset = 0
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -6)
 texture = ExtResource("1_pq8s5")
 hframes = 33
 vframes = 4
-frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -4)

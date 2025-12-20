@@ -19,5 +19,14 @@ const ANIMATION_FISH := "fish"
 const ANIMATION_SEED := "seed"
 const ANIMATIONS = [ANIMATION_AXE, ANIMATION_HOE, ANIMATION_SWORD, ANIMATION_WATER, ANIMATION_FISH, ANIMATION_SEED]
 
+
+# tool textures
+const TEXTURE_AXE := preload("res://assets/tools/axe.png")
+const TEXTURE_HOE := preload("res://assets/tools/hoe.png")
+const TEXTURE_SWORD := preload("res://assets/tools/sword.png")
+const TEXTURE_WATER := preload("res://assets/tools/water.png")
+const TEXTURE_FISH := preload("res://assets/tools/fish.png")
+const TEXTURE_SEED := preload("res://assets/tools/seed.png")
+const TEXTURES = [TEXTURE_AXE, TEXTURE_HOE, TEXTURE_SWORD, TEXTURE_WATER, TEXTURE_FISH, TEXTURE_SEED]
 # tile
 const TILE_SIZE = 16
