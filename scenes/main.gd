@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var Plants = $Farm/Plants
+@onready var Plants = $Objects/Plants
 var wheat_plant_scene = preload("res://scenes/plants/wheat.tscn")
 var previous_highlight_tile: Vector2i = Vector2i(-999, -999)
 var plants: Array[Node2D] = []
@@ -13,6 +13,11 @@ func cell_has_plant(grid: Vector2i) -> bool:
 
 func _on_player_behavior_signal(bi: int, pos: Vector2) -> void:
 	var grid: Vector2i = Vector2i(floor(pos.x / DATA.TILE_SIZE), floor(pos.y / DATA.TILE_SIZE))
+	if bi == 0:
+		for o in get_tree().get_nodes_in_group("objects"):
+			o = o as Node2D
+			if o.position.distance_to(pos) < 20:
+				o.hit(bi)
 	if bi == 1:
 		var tile_data = $Farm/GressTileMapLayer.get_cell_tile_data(grid) as TileData
 		if tile_data and tile_data.get_custom_data("farm_able") as bool:

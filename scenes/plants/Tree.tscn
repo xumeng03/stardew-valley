@@ -1,0 +1,56 @@
+[gd_scene load_steps=8 format=3 uid="uid://dnkqc0a4hmlt3"]
+
+[ext_resource type="Script" uid="uid://1albh6xsio55" path="res://scenes/plants/tree.gd" id="1_enbsd"]
+[ext_resource type="Texture2D" uid="uid://da81rvdk3a13x" path="res://assets/plants/tree.png" id="1_n0mtc"]
+[ext_resource type="Texture2D" uid="uid://bfrqc6gtv0ycs" path="res://assets/plants/stump.png" id="2_aporu"]
+[ext_resource type="PackedScene" uid="uid://c2td5qmuu7rvo" path="res://vfx/flash_sprite_2d.tscn" id="2_wmutr"]
+[ext_resource type="Shader" uid="uid://b8b61n7vpiajt" path="res://shader/flash.tres" id="3_aporu"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qgv6i"]
+resource_local_to_scene = true
+shader = ExtResource("3_aporu")
+shader_parameter/ColorParameter = Color(1, 1, 1, 1)
+shader_parameter/FloatParameter = 0.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_enbsd"]
+radius = 5.0
+height = 24.0
+
+[node name="Tree" type="StaticBody2D"]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_enbsd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, -6)
+texture = ExtResource("2_aporu")
+
+[node name="FlashSprite2D" parent="." instance=ExtResource("2_wmutr")]
+material = SubResource("ShaderMaterial_qgv6i")
+position = Vector2(0, -16)
+texture = ExtResource("1_n0mtc")
+hframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -12)
+shape = SubResource("CapsuleShape2D_enbsd")
+
+[node name="ApplePositons" type="Node2D" parent="."]
+
+[node name="Marker2D1" type="Marker2D" parent="ApplePositons"]
+position = Vector2(4, -11)
+
+[node name="Marker2D2" type="Marker2D" parent="ApplePositons"]
+position = Vector2(0, -23)
+
+[node name="Marker2D3" type="Marker2D" parent="ApplePositons"]
+position = Vector2(-7, -17)
+
+[node name="Marker2D4" type="Marker2D" parent="ApplePositons"]
+position = Vector2(6, -17)
+
+[node name="Marker2D5" type="Marker2D" parent="ApplePositons"]
+position = Vector2(-4, -11)
+
+[node name="Apples" type="Node2D" parent="."]

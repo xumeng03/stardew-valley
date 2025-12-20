@@ -527,15 +527,19 @@ nodes/OneShot/position = Vector2(253.33333, 160)
 node_connections = [&"output", 0, &"OneShot", &"OneShot", 0, &"MoveStateMachine", &"OneShot", 1, &"BehaviorStateMachine"]
 
 [node name="Player" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 5
 script = ExtResource("1_gin2a")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -6)
 texture = ExtResource("1_pq8s5")
 hframes = 33
 vframes = 4
 frame = 109
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -4)
 shape = SubResource("CapsuleShape2D_pq8s5")
 
 [node name="Animation" type="Node" parent="."]
