@@ -16,12 +16,17 @@ func _on_player_behavior_signal(bi: int, pos: Vector2) -> void:
 	if bi == 0:
 		for o in get_tree().get_nodes_in_group("objects"):
 			o = o as Node2D
-			if o.position.distance_to(pos) < 20:
+			if o.position.distance_to(pos) < DATA.TILE_SIZE:
 				o.hit(bi)
 	if bi == 1:
 		var tile_data = $Farm/GressTileMapLayer.get_cell_tile_data(grid) as TileData
 		if tile_data and tile_data.get_custom_data("farm_able") as bool:
 			$Farm/SoilTileMapLayer.set_cells_terrain_connect([grid], 0, 0)
+	if bi == 2:
+		for o in get_tree().get_nodes_in_group("objects"):
+			o = o as Node2D
+			if o.position.distance_to(pos) < DATA.TILE_SIZE:
+				o.hit(bi)
 	if bi == 3:
 		var tile_data = $Farm/SoilTileMapLayer.get_cell_tile_data(grid) as TileData
 		if tile_data:

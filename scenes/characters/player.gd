@@ -14,6 +14,9 @@ var can_move := true
 signal behavior_signal(bi: int, pos: Vector2)
 signal move_signal(pos: Vector2)
 
+func _ready() -> void:
+	add_to_group("player")
+
 func _physics_process(_delta: float) -> void:
 	if can_move:
 		# process direction,behavior switch action information
