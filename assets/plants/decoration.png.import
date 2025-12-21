@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d2ayc3d8tqxll"
-path="res://.godot/imported/decoration.png-61bf19613e8c6e776606cef7db0b16e1.ctex"
+path="res://.godot/imported/decoration.png-db956622fef452082129499ba4ed0796.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/world/farm/decoration.png"
-dest_files=["res://.godot/imported/decoration.png-61bf19613e8c6e776606cef7db0b16e1.ctex"]
+source_file="res://assets/plants/decoration.png"
+dest_files=["res://.godot/imported/decoration.png-db956622fef452082129499ba4ed0796.ctex"]
 
 [params]
 
