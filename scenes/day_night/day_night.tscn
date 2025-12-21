@@ -6,8 +6,9 @@
 script = ExtResource("1_hwme4")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0.41960785, 1, 1, 1)
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 240.0
+wait_time = 24.0
 one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

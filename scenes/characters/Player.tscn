@@ -1,9 +1,10 @@
-[gd_scene load_steps=130 format=3 uid="uid://do87kvhm0k4s6"]
+[gd_scene load_steps=132 format=3 uid="uid://do87kvhm0k4s6"]
 
 [ext_resource type="Script" uid="uid://dwmt4nw324xhb" path="res://scenes/characters/player.gd" id="1_gin2a"]
 [ext_resource type="Texture2D" uid="uid://1wbtvpo8fkn5" path="res://assets/characters/player/basic.png" id="1_pq8s5"]
 [ext_resource type="AnimationLibrary" uid="uid://5b00yw1xk2mt" path="res://scenes/characters/player_animation.res" id="3_7n8ao"]
 [ext_resource type="PackedScene" uid="uid://d3buj6baj0775" path="res://scenes/UI/ToolUI.tscn" id="4_7wym0"]
+[ext_resource type="Shader" uid="uid://b2q5qbt18tbty" path="res://shader/circle_mask.gdshader" id="5_gj1sn"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pq8s5"]
 radius = 4.0
@@ -527,13 +528,16 @@ nodes/OneShot/node = SubResource("AnimationNodeOneShot_7n8ao")
 nodes/OneShot/position = Vector2(253.33333, 160)
 node_connections = [&"output", 0, &"OneShot", &"OneShot", 0, &"MoveStateMachine", &"OneShot", 1, &"BehaviorStateMachine"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rpfb3"]
+shader = ExtResource("5_gj1sn")
+shader_parameter/progress = 1.0
+
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 5
 script = ExtResource("1_gin2a")
 
 [node name="ToolUI" parent="." instance=ExtResource("4_7wym0")]
-anchors_preset = 0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -6)
@@ -570,6 +574,17 @@ parameters/OneShot/request = 0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(4, 4)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = 9
+material = SubResource("ShaderMaterial_rpfb3")
+custom_minimum_size = Vector2(999, 999)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
 
 [connection signal="animation_finished" from="Animation/AnimationTree" to="." method="_on_animation_tree_animation_finished"]
 [connection signal="animation_started" from="Animation/AnimationTree" to="." method="_on_animation_tree_animation_started"]
