@@ -1,7 +1,7 @@
 extends Node2D
 
 @onready var Plants = $Objects/Plants
-var wheat_plant_scene = preload("res://scenes/plants/wheat.tscn")
+var crop_scene = preload("res://scenes/plants/crop.tscn")
 var previous_highlight_tile: Vector2i = Vector2i(-999, -999)
 var plants: Array[Node2D] = []
 
@@ -42,10 +42,9 @@ func _on_player_behavior_signal(bi: int, pos: Vector2) -> void:
 		var tile_data = $Farm/SoilTileMapLayer.get_cell_tile_data(grid) as TileData
 		var plant_position = grid * DATA.TILE_SIZE + Vector2i(8, 12)
 		if tile_data and not cell_has_plant(plant_position):
-			var wheat_plant = wheat_plant_scene.instantiate()
-			wheat_plant.position = plant_position
-			Plants.add_child(wheat_plant)
-			plants.append(wheat_plant)
+			var crop = crop_scene.instantiate()
+			crop.initialize(grid, Plants)
+			plants.append(crop)
 
 func _on_player_move_signal(pos: Vector2) -> void:
 	var grid: Vector2i = Vector2i(floor(pos.x / DATA.TILE_SIZE), floor(pos.y / DATA.TILE_SIZE))

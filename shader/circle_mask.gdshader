@@ -2,7 +2,7 @@
 shader_type canvas_item;
 
 // 定义外部可控参数
-uniform float progress : hint_range(0.0, 1.0) = 0.0;
+uniform float progress : hint_range(0.0, 1.0) = 1.0;
 
 void fragment() {
     // 计算到中心点的距离

@@ -540,13 +540,12 @@ script = ExtResource("1_gin2a")
 [node name="ToolUI" parent="." instance=ExtResource("4_7wym0")]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -6)
 texture = ExtResource("1_pq8s5")
 hframes = 33
 vframes = 4
+frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -4)
 shape = SubResource("CapsuleShape2D_pq8s5")
 
 [node name="Animation" type="Node" parent="."]
@@ -579,11 +578,18 @@ zoom = Vector2(4, 4)
 z_index = 9
 material = SubResource("ShaderMaterial_rpfb3")
 custom_minimum_size = Vector2(999, 999)
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -499.5
+offset_top = -499.5
+offset_right = 499.5
+offset_bottom = 499.5
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 0
 color = Color(0, 0, 0, 1)
 
 [connection signal="animation_finished" from="Animation/AnimationTree" to="." method="_on_animation_tree_animation_finished"]

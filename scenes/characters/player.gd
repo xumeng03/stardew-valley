@@ -29,7 +29,7 @@ func _physics_process(_delta: float) -> void:
 		process_behavior()
 		# character movement
 		process_move()
-	move_signal.emit(position + last_direction * 16 + Vector2(0, 4))
+	move_signal.emit(position + last_direction * 16 + Vector2(0, 2))
 
 func process_input():
 	direction = Input.get_vector(DATA.ACTIONS_LEFT, DATA.ACTIONS_RIGHT, DATA.ACTIONS_UP, DATA.ACTIONS_DOWN)
@@ -72,4 +72,4 @@ func _on_animation_tree_animation_finished(_anim_name: StringName) -> void:
 
 func _on_behavior():
 	# print(DATA.ANIMATIONS[behavior_index].capitalize())
-	behavior_signal.emit(behavior_index, position + last_direction * 16 + Vector2(0, 4))
+	behavior_signal.emit(behavior_index, position + last_direction * 16 + Vector2(0, 2))
