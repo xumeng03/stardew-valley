@@ -8,7 +8,17 @@ func _ready() -> void:
 	if plant_resource:
 		$Sprite2D.texture = plant_resource.texture
 
-func initialize(grid: Vector2i, plants: Node2D) -> Node2D:
+func initialize(grid: Vector2i, si: int, plants: Node2D) -> Node2D:
+	match si:
+		0:
+			plant_resource = CronPlantResource.new()
+		1:
+			plant_resource = PumpkinPlantResource.new()
+		2:
+			plant_resource = TomatoPlantResource.new()
+		3:
+			plant_resource = WheatPlantResource.new()
+	$Sprite2D.texture = plant_resource.texture
 	plant_resource.grid_position = grid
 	position = grid * DATA.TILE_SIZE + Vector2i(8, 12)
 	plants.add_child(self)
@@ -18,3 +28,5 @@ func initialize(grid: Vector2i, plants: Node2D) -> Node2D:
 func grow(has_water: bool) -> void:
 	if has_water:
 		plant_resource.grow($Sprite2D)
+	else:
+		plant_resource.wither(self)

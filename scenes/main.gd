@@ -11,7 +11,7 @@ func cell_has_plant(grid: Vector2i) -> bool:
 			return true
 	return false
 
-func _on_player_behavior_signal(bi: int, pos: Vector2) -> void:
+func _on_player_behavior_signal(bi: int, si: int, pos: Vector2) -> void:
 	var grid: Vector2i = Vector2i(floor(pos.x / DATA.TILE_SIZE), floor(pos.y / DATA.TILE_SIZE))
 	if bi == 0:
 		for o in get_tree().get_nodes_in_group("objects"):
@@ -43,7 +43,7 @@ func _on_player_behavior_signal(bi: int, pos: Vector2) -> void:
 		var plant_position = grid * DATA.TILE_SIZE + Vector2i(8, 12)
 		if tile_data and not cell_has_plant(plant_position):
 			var crop = crop_scene.instantiate()
-			crop.initialize(grid, Plants)
+			crop.initialize(grid, si, Plants)
 			plants.append(crop)
 
 func _on_player_move_signal(pos: Vector2) -> void:

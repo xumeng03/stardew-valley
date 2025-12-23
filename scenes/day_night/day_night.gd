@@ -55,6 +55,8 @@ func _on_timer_timeout() -> void:
 		var plants = get_tree().get_nodes_in_group("plants")
 		for plant in plants:
 			plant.grow(plant.plant_resource.grid_position in get_parent().get_node("Farm/SoilWaterTileMapLayer").get_used_cells())
+		var farm = get_parent().get_node("Farm")
+		farm.get_node("SoilWaterTileMapLayer").clear()
 	)
 	tween.tween_property(shader_material, "shader_parameter/progress", 1.0, 1)
 	tween.tween_callback(func():

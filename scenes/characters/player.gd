@@ -12,7 +12,7 @@ var can_move := true
 @onready var move_state_machine: AnimationNodeStateMachinePlayback = animation_tree.get("parameters/MoveStateMachine/playback")
 @onready var behavior_state_machine: AnimationNodeStateMachinePlayback = animation_tree.get("parameters/BehaviorStateMachine/playback")
 
-signal behavior_signal(bi: int, pos: Vector2)
+signal behavior_signal(bi: int, si: int, pos: Vector2)
 signal move_signal(pos: Vector2)
 
 func _ready() -> void:
@@ -41,8 +41,9 @@ func process_input():
 		# print(switch_direction," ", behavior_index)
 		$ToolUI.show_tool_ui(behavior_index)
 	if Input.is_action_just_pressed(DATA.ACTIONS_SEED_SWITCH_NEXT):
-		seed_index = posmod(seed_index + 1, DATA.SEED_TEXTURES.size())
-		$SeedUI.show_seed_ui(seed_index)
+		if behavior_index == 5:
+			seed_index = posmod(seed_index + 1, DATA.SEED_TEXTURES.size())
+			$SeedUI.show_seed_ui(seed_index)
 
 
 func process_move_state_machine():
@@ -77,4 +78,4 @@ func _on_animation_tree_animation_finished(_anim_name: StringName) -> void:
 
 func _on_behavior():
 	# print(DATA.ANIMATIONS[behavior_index].capitalize())
-	behavior_signal.emit(behavior_index, position + last_direction * 16 + Vector2(0, 2))
+	behavior_signal.emit(behavior_index, seed_index, position + last_direction * 16 + Vector2(0, 2))
