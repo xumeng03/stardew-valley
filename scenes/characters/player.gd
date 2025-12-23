@@ -6,6 +6,7 @@ var last_direction := Vector2.ZERO
 var switch_direction: int
 @export var speed := 60
 var behavior_index := 0
+var seed_index := 0
 var can_move := true
 @onready var animation_tree = $Animation/AnimationTree
 @onready var move_state_machine: AnimationNodeStateMachinePlayback = animation_tree.get("parameters/MoveStateMachine/playback")
@@ -39,6 +40,10 @@ func process_input():
 		behavior_index = posmod(behavior_index + switch_direction, DATA.ANIMATIONS.size())
 		# print(switch_direction," ", behavior_index)
 		$ToolUI.show_tool_ui(behavior_index)
+	if Input.is_action_just_pressed(DATA.ACTIONS_SEED_SWITCH_NEXT):
+		seed_index = posmod(seed_index + 1, DATA.SEED_TEXTURES.size())
+		$SeedUI.show_seed_ui(seed_index)
+
 
 func process_move_state_machine():
 	if direction:

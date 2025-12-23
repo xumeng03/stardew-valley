@@ -1,8 +1,9 @@
-[gd_scene load_steps=132 format=3 uid="uid://do87kvhm0k4s6"]
+[gd_scene load_steps=133 format=3 uid="uid://do87kvhm0k4s6"]
 
 [ext_resource type="Script" uid="uid://dwmt4nw324xhb" path="res://scenes/characters/player.gd" id="1_gin2a"]
 [ext_resource type="Texture2D" uid="uid://1wbtvpo8fkn5" path="res://assets/characters/player/basic.png" id="1_pq8s5"]
 [ext_resource type="AnimationLibrary" uid="uid://5b00yw1xk2mt" path="res://scenes/characters/player_animation.res" id="3_7n8ao"]
+[ext_resource type="PackedScene" uid="uid://ch8hdp8y02y3i" path="res://scenes/UI/SeedUI.tscn" id="3_rpfb3"]
 [ext_resource type="PackedScene" uid="uid://d3buj6baj0775" path="res://scenes/UI/ToolUI.tscn" id="4_7wym0"]
 [ext_resource type="Shader" uid="uid://b2q5qbt18tbty" path="res://shader/circle_mask.gdshader" id="5_gj1sn"]
 
@@ -536,8 +537,11 @@ shader_parameter/progress = 1.0
 collision_layer = 2
 collision_mask = 5
 script = ExtResource("1_gin2a")
+speed = null
 
 [node name="ToolUI" parent="." instance=ExtResource("4_7wym0")]
+
+[node name="SeedUI" parent="." instance=ExtResource("3_rpfb3")]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_pq8s5")

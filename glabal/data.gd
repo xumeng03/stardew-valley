@@ -9,7 +9,8 @@ const ACTIONS_ACTION := "action"
 const ACTIONS_BEHAVIOR_SWITCH_PREVIOUS := "behavior_swtich_previous"
 const ACTIONS_BEHAVIOR_SWITCH_NEXT := "behavior_swtich_next"
 const ACTIONS_NEXT_DAY := "next_day"
-const ACTIONS = [ACTIONS_LEFT, ACTIONS_RIGHT, ACTIONS_UP, ACTIONS_DOWN, ACTIONS_ACTION, ACTIONS_BEHAVIOR_SWITCH_PREVIOUS, ACTIONS_BEHAVIOR_SWITCH_NEXT, ACTIONS_NEXT_DAY]
+const ACTIONS_SEED_SWITCH_NEXT := "seed_swtich_next"
+const ACTIONS = [ACTIONS_LEFT, ACTIONS_RIGHT, ACTIONS_UP, ACTIONS_DOWN, ACTIONS_ACTION, ACTIONS_BEHAVIOR_SWITCH_PREVIOUS, ACTIONS_BEHAVIOR_SWITCH_NEXT, ACTIONS_NEXT_DAY, ACTIONS_SEED_SWITCH_NEXT]
 
 # animation names
 const ANIMATION_AXE := "axe"
@@ -29,5 +30,12 @@ const TEXTURE_WATER := preload("res://assets/tools/water.png")
 const TEXTURE_FISH := preload("res://assets/tools/fish.png")
 const TEXTURE_SEED := preload("res://assets/tools/seed.png")
 const TEXTURES = [TEXTURE_AXE, TEXTURE_HOE, TEXTURE_SWORD, TEXTURE_WATER, TEXTURE_FISH, TEXTURE_SEED]
+
+# seed textures
+const TEXTURE_CRON := preload("res://assets/seeds/corn.png")
+const TEXTURE_PUMPKIN := preload("res://assets/seeds/pumpkin.png")
+const TEXTURE_TOMATO := preload("res://assets/seeds/tomato.png")
+const TEXTURE_WHEAT := preload("res://assets/seeds/wheat.png")
+const SEED_TEXTURES = [TEXTURE_CRON, TEXTURE_PUMPKIN, TEXTURE_TOMATO, TEXTURE_WHEAT]
 # tile
 const TILE_SIZE = 16
