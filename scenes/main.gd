@@ -2,14 +2,12 @@ extends Node2D
 
 @onready var Plants = $Objects/Plants
 var crop_scene = preload("res://scenes/plants/crop.tscn")
+var crop_info_scene = preload("res://scenes/UI/CropInfo.tscn")
 var previous_highlight_tile: Vector2i = Vector2i(-999, -999)
-var plants: Array[Node2D] = []
+var plant_grids: Array[Vector2i] = []
 
 func cell_has_plant(grid: Vector2i) -> bool:
-	for plant in plants:
-		if plant.position.x == grid.x and plant.position.y == grid.y:
-			return true
-	return false
+	return grid in plant_grids
 
 func _on_player_behavior_signal(bi: int, si: int, pos: Vector2) -> void:
 	var grid: Vector2i = Vector2i(floor(pos.x / DATA.TILE_SIZE), floor(pos.y / DATA.TILE_SIZE))
@@ -40,11 +38,14 @@ func _on_player_behavior_signal(bi: int, si: int, pos: Vector2) -> void:
 			print("can't fish here")
 	if bi == 5:
 		var tile_data = $Farm/SoilTileMapLayer.get_cell_tile_data(grid) as TileData
-		var plant_position = grid * DATA.TILE_SIZE + Vector2i(8, 12)
-		if tile_data and not cell_has_plant(plant_position):
+		if tile_data and not cell_has_plant(grid):
 			var crop = crop_scene.instantiate()
-			crop.initialize(grid, si, Plants)
-			plants.append(crop)
+			crop.initialize(grid, si, Plants, erase_plant_grid)
+			plant_grids.append(grid)
+			var crop_info = crop_info_scene.instantiate()
+			crop_info.initialize(crop.plant_resource)
+			$CanvasLayer/CropContainer.add_crop_info(crop_info)
+		print(plant_grids)
 
 func _on_player_move_signal(pos: Vector2) -> void:
 	var grid: Vector2i = Vector2i(floor(pos.x / DATA.TILE_SIZE), floor(pos.y / DATA.TILE_SIZE))
@@ -56,3 +57,7 @@ func _on_player_move_signal(pos: Vector2) -> void:
 	$Farm/HighLightTileMapLayer.set_cell(grid, 0, Vector2i(1, 1), 0)
 
 	previous_highlight_tile = grid
+
+func erase_plant_grid(grid: Vector2i) -> void:
+	plant_grids.erase(grid)
+	print(plant_grids)

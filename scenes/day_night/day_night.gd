@@ -57,6 +57,8 @@ func _on_timer_timeout() -> void:
 			plant.grow(plant.plant_resource.grid_position in get_parent().get_node("Farm/SoilWaterTileMapLayer").get_used_cells())
 		var farm = get_parent().get_node("Farm")
 		farm.get_node("SoilWaterTileMapLayer").clear()
+		get_parent().get_node("CanvasLayer/CropContainer").update_crop_info()
+		$CanvasModulate.color = dawn_color
 	)
 	tween.tween_property(shader_material, "shader_parameter/progress", 1.0, 1)
 	tween.tween_callback(func():

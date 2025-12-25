@@ -1,0 +1,61 @@
+[gd_scene load_steps=5 format=3 uid="uid://6p5ohwgxmrxh"]
+
+[ext_resource type="Theme" uid="uid://cxu87pfqy0ovy" path="res://scenes/UI/CropInfo.tres" id="1_t8aev"]
+[ext_resource type="Script" uid="uid://c7war4os77bwd" path="res://scenes/UI/crop_info.gd" id="2_t8aev"]
+[ext_resource type="Texture2D" uid="uid://x67wkpjj8k3e" path="res://assets/seeds/tomato.png" id="3_0pfig"]
+[ext_resource type="Texture2D" uid="uid://gdaq7vt5uup" path="res://assets/ui/v_bar.png" id="4_4skg4"]
+
+[node name="CropInfo" type="Control"]
+custom_minimum_size = Vector2(156, 59)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 200.0
+offset_bottom = 59.0
+theme = ExtResource("1_t8aev")
+script = ExtResource("2_t8aev")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 59.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+theme = ExtResource("1_t8aev")
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/HBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("3_0pfig")
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Tomato"
+
+[node name="GrowTextureProgressBar" type="TextureProgressBar" parent="PanelContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 6)
+layout_mode = 2
+value = 90.0
+nine_patch_stretch = true
+texture_under = ExtResource("4_4skg4")
+texture_progress = ExtResource("4_4skg4")
+tint_under = Color(0.5211406, 0.52114064, 0.52114046, 1)
+tint_progress = Color(0.19607843, 1, 0.42745098, 1)
+
+[node name="HealthTextureProgressBar" type="TextureProgressBar" parent="PanelContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 6)
+layout_mode = 2
+value = 75.0
+nine_patch_stretch = true
+texture_under = ExtResource("4_4skg4")
+texture_progress = ExtResource("4_4skg4")
+tint_under = Color(0.52156866, 0.52156866, 0.52156866, 1)
+tint_progress = Color(0.7176471, 0.23137255, 0, 1)

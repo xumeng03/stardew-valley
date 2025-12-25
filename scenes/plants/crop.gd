@@ -3,12 +3,14 @@ class_name CropPlant extends StaticBody2D
 
 @export var plant_resource: PlantResource
 
+signal death_signal(grid: Vector2i)
+
 func _ready() -> void:
 	add_to_group("plants")
 	if plant_resource:
 		$FlashSprite2D.texture = plant_resource.texture
 
-func initialize(grid: Vector2i, si: int, plants: Node2D) -> Node2D:
+func initialize(grid: Vector2i, si: int, plants: Node2D, erase_plant_grid: Callable) -> Node2D:
 	match si:
 		0:
 			plant_resource = CronPlantResource.new()
@@ -22,6 +24,7 @@ func initialize(grid: Vector2i, si: int, plants: Node2D) -> Node2D:
 	plant_resource.grid_position = grid
 	position = grid * DATA.TILE_SIZE + Vector2i(8, 12)
 	plants.add_child(self)
+	death_signal.connect(erase_plant_grid)
 	return self
 
 
@@ -34,4 +37,6 @@ func grow(has_water: bool) -> void:
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if plant_resource.mature() && body.is_in_group("player"):
+		plant_resource.dead = true
+		death_signal.emit(plant_resource.grid_position)
 		$FlashSprite2D.flash(0.2, 0.2, Callable(self, "queue_free"))
