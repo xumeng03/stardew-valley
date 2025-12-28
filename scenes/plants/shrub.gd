@@ -1,7 +1,7 @@
 @tool
 extends StaticBody2D
 
-@export var random := false
+@export var random := true
 @export var coord: Vector2i = Vector2i(0, 0):
 	set(value):
 		coord = value
