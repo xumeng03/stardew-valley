@@ -7,7 +7,12 @@ extends Node2D
 @export_range(0, 1) var dawn_duration: float = 1.0 / 24.0
 @export_range(0, 1) var dusk_start: float = 0.75
 @export_range(0, 1) var dusk_duration: float = 1.0 / 24.0
-
+@export var rain_color: Color = Color(0.3, 0.3, 0.5, 1.0)
+@export var raining: bool = false:
+	set(value):
+		raining = value
+		$RippleGPUParticles2D.emitting = raining
+		$RainDropGPUParticles2D.emitting = raining
 var dawn_color := Color(1.0, 0.8, 0.6, 1.0)
 var day_color := Color(1.0, 1.0, 1.0, 1.0)
 var dusk_color := Color(0.8, 0.6, 0.7, 1.0)
@@ -16,6 +21,7 @@ var night_color := Color(0.3, 0.3, 0.5, 1.0)
 var is_transitioning: bool = false
 
 func _ready() -> void:
+	raining = false
 	timer.wait_time = day_duration
 	timer.start(day_duration * (1 - dawn_start))
 
@@ -41,7 +47,7 @@ func _physics_process(_delta: float) -> void:
 		color = dusk_color
 	else:
 		color = night_color
-	$CanvasModulate.color = color
+	$CanvasModulate.color = color.lerp(rain_color, 0.5 if raining else 0.0)
 
 
 func _on_timer_timeout() -> void:
@@ -58,7 +64,8 @@ func _on_timer_timeout() -> void:
 		var farm = get_parent().get_node("Farm")
 		farm.get_node("SoilWaterTileMapLayer").clear()
 		get_parent().get_node("CanvasLayer/CropContainer").update_crop_info()
-		$CanvasModulate.color = dawn_color
+		raining = [true, false].pick_random()
+		$CanvasModulate.color = dawn_color.lerp(rain_color, 0.5 if raining else 0.0)
 	)
 	tween.tween_property(shader_material, "shader_parameter/progress", 1.0, 1)
 	tween.tween_callback(func():
