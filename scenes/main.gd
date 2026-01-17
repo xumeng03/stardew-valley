@@ -20,6 +20,8 @@ func _on_player_behavior_signal(bi: int, si: int, pos: Vector2) -> void:
 		var tile_data = $Farm/GressTileMapLayer.get_cell_tile_data(grid) as TileData
 		if tile_data and tile_data.get_custom_data("farm_able") as bool:
 			$Farm/SoilTileMapLayer.set_cells_terrain_connect([grid], 0, 0)
+			if DATA.weather:
+				$Farm/SoilWaterTileMapLayer.set_cell(grid, 0, Vector2i(randi_range(0, 2), 0), 0)
 	if bi == 2:
 		for o in get_tree().get_nodes_in_group("objects"):
 			o = o as Node2D

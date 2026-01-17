@@ -21,7 +21,9 @@ var night_color := Color(0.3, 0.3, 0.5, 1.0)
 var is_transitioning: bool = false
 
 func _ready() -> void:
-	raining = false
+	raining = DATA.weather
+	DATA.weather = [true, false].pick_random()
+	print("Tomorrow will be rainy" if DATA.weather else "Tomorrow will be sunny")
 	timer.wait_time = day_duration
 	timer.start(day_duration * (1 - dawn_start))
 
@@ -64,7 +66,14 @@ func _on_timer_timeout() -> void:
 		var farm = get_parent().get_node("Farm")
 		farm.get_node("SoilWaterTileMapLayer").clear()
 		get_parent().get_node("CanvasLayer/CropContainer").update_crop_info()
-		raining = [true, false].pick_random()
+		raining = DATA.weather
+		DATA.weather = [true, false].pick_random()
+		print("Tomorrow will be rainy" if DATA.weather else "Tomorrow will be sunny")
+		if raining:
+			var soilTileMapLayer = get_parent().get_node("Farm/SoilTileMapLayer")
+			var soilWaterTileMapLayer = get_parent().get_node("Farm/SoilWaterTileMapLayer")
+			for cell in soilTileMapLayer.get_used_cells():
+				soilWaterTileMapLayer.set_cell(cell, 0, Vector2i(randi_range(0, 2), 0), 0)
 		$CanvasModulate.color = dawn_color.lerp(rain_color, 0.5 if raining else 0.0)
 	)
 	tween.tween_property(shader_material, "shader_parameter/progress", 1.0, 1)

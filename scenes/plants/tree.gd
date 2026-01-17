@@ -13,7 +13,7 @@ var health := 3:
 			capsule_shape.radius = 6
 			capsule_shape.height = 12
 			$CollisionShape2D.shape = capsule_shape
-			$CollisionShape2D.position.y = -6
+			$CollisionShape2D.position.y = 10
 		else:
 			health = value
 

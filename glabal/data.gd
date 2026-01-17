@@ -37,5 +37,9 @@ const TEXTURE_PUMPKIN := preload("res://assets/seeds/pumpkin.png")
 const TEXTURE_TOMATO := preload("res://assets/seeds/tomato.png")
 const TEXTURE_WHEAT := preload("res://assets/seeds/wheat.png")
 const SEED_TEXTURES = [TEXTURE_CRON, TEXTURE_PUMPKIN, TEXTURE_TOMATO, TEXTURE_WHEAT]
+
 # tile
-const TILE_SIZE = 16
+const TILE_SIZE := 16
+
+# weather
+var weather: bool = false

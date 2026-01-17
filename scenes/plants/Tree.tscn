@@ -23,20 +23,20 @@ script = ExtResource("1_enbsd")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(0, -6)
+position = Vector2(0, 10)
 texture = ExtResource("2_aporu")
 
 [node name="FlashSprite2D" parent="." instance=ExtResource("2_wmutr")]
 material = SubResource("ShaderMaterial_qgv6i")
-position = Vector2(0, -16)
 texture = ExtResource("1_n0mtc")
 hframes = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -12)
+position = Vector2(0, 4)
 shape = SubResource("CapsuleShape2D_enbsd")
 
 [node name="ApplePositons" type="Node2D" parent="."]
+position = Vector2(0, 16)
 
 [node name="Marker2D1" type="Marker2D" parent="ApplePositons"]
 position = Vector2(4, -11)
@@ -54,3 +54,4 @@ position = Vector2(6, -17)
 position = Vector2(-4, -11)
 
 [node name="Apples" type="Node2D" parent="."]
+position = Vector2(0, 16)
