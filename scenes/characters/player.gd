@@ -63,10 +63,17 @@ func process_behavior_state_machine():
 
 func process_behavior():
 	if Input.is_action_just_pressed(DATA.ACTIONS_ACTION):
-		animation_tree.set("parameters/OneShot/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
+		if $RayCast2D.is_colliding():
+			print("colliding", $RayCast2D.get_collider().name)
+			$RayCast2D.get_collider().interact(self)
+		else:
+			animation_tree.set("parameters/OneShot/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
 
 func process_move():
 	velocity = direction * speed
+	if direction:
+		var ray_direction = Vector2(direction.x, 0) if direction.x != 0 else Vector2(0, direction.y)
+		$RayCast2D.target_position = ray_direction.normalized() * 20
 	move_and_slide()
 
 func _on_animation_tree_animation_started(_anim_name: StringName) -> void:

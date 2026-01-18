@@ -1,0 +1,74 @@
+[gd_scene load_steps=10 format=3 uid="uid://7xnkjuv0scuv"]
+
+[ext_resource type="Texture2D" uid="uid://dywtihahnbdf0" path="res://assets/world/tv.png" id="1_7py5d"]
+[ext_resource type="Script" uid="uid://c715as5q4htnp" path="res://scenes/world/tv.gd" id="1_cg7ah"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cg7ah"]
+atlas = ExtResource("1_7py5d")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4wax4"]
+atlas = ExtResource("1_7py5d")
+region = Rect2(48, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fcxif"]
+atlas = ExtResource("1_7py5d")
+region = Rect2(64, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_arcmo"]
+atlas = ExtResource("1_7py5d")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4bat3"]
+atlas = ExtResource("1_7py5d")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_omrnh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cg7ah")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4wax4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fcxif")
+}],
+"loop": true,
+"name": &"rainy",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_arcmo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4bat3")
+}],
+"loop": true,
+"name": &"sunny",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l6if3"]
+size = Vector2(14, 18)
+
+[node name="TvStaticBody2D" type="StaticBody2D"]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_cg7ah")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -6)
+sprite_frames = SubResource("SpriteFrames_omrnh")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -9)
+shape = SubResource("RectangleShape2D_l6if3")

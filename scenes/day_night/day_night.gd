@@ -75,6 +75,8 @@ func _on_timer_timeout() -> void:
 			for cell in soilTileMapLayer.get_used_cells():
 				soilWaterTileMapLayer.set_cell(cell, 0, Vector2i(randi_range(0, 2), 0), 0)
 		$CanvasModulate.color = dawn_color.lerp(rain_color, 0.5 if raining else 0.0)
+		var tv = get_parent().get_node("House/TvStaticBody2D")
+		tv.get_node("AnimatedSprite2D").play("default")
 	)
 	tween.tween_property(shader_material, "shader_parameter/progress", 1.0, 1)
 	tween.tween_callback(func():

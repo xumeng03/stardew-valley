@@ -47,7 +47,6 @@ anim_speed_max = 2.0
 script = ExtResource("1_sugp2")
 
 [node name="Farm" parent="." instance=ExtResource("1_0wfyh")]
-z_index = -2
 
 [node name="House" parent="." instance=ExtResource("10_choun")]
 position = Vector2(102, -174)
@@ -64,7 +63,7 @@ position = Vector2(-52, -39)
 [node name="Shrub1" parent="Objects/Plants" instance=ExtResource("5_tbgi4")]
 z_index = -1
 position = Vector2(-130, -23)
-coord = Vector2i(3, 0)
+coord = Vector2i(3, 1)
 
 [node name="Shrub2" parent="Objects/Plants" instance=ExtResource("5_tbgi4")]
 z_index = -1
@@ -84,17 +83,17 @@ coord = Vector2i(3, 0)
 [node name="Shrub5" parent="Objects/Plants" instance=ExtResource("5_tbgi4")]
 z_index = -1
 position = Vector2(-61, 26)
-coord = Vector2i(0, 1)
+coord = Vector2i(1, 1)
 
 [node name="Shrub6" parent="Objects/Plants" instance=ExtResource("5_tbgi4")]
 z_index = -1
 position = Vector2(148, -23)
-coord = Vector2i(1, 0)
+coord = Vector2i(3, 0)
 
 [node name="Shrub7" parent="Objects/Plants" instance=ExtResource("5_tbgi4")]
 z_index = -1
 position = Vector2(-107, 14)
-coord = Vector2i(3, 0)
+coord = Vector2i(2, 0)
 
 [node name="Tree2" parent="Objects/Plants" instance=ExtResource("4_jyhfs")]
 position = Vector2(-163, -86)
@@ -246,22 +245,20 @@ position = Vector2(686, -613)
 [node name="Shrub8" parent="Objects/Plants" instance=ExtResource("5_tbgi4")]
 z_index = -1
 position = Vector2(221, -177)
-coord = Vector2i(2, 1)
 
 [node name="Shrub9" parent="Objects/Plants" instance=ExtResource("5_tbgi4")]
 z_index = -1
 position = Vector2(215, -227)
-coord = Vector2i(0, 1)
+coord = Vector2i(1, 1)
 
 [node name="Shrub10" parent="Objects/Plants" instance=ExtResource("5_tbgi4")]
 z_index = -1
 position = Vector2(400, -204)
-coord = Vector2i(2, 0)
 
 [node name="Shrub11" parent="Objects/Plants" instance=ExtResource("5_tbgi4")]
 z_index = -1
 position = Vector2(332, -339)
-coord = Vector2i(2, 0)
+coord = Vector2i(3, 1)
 
 [node name="Shrub12" parent="Objects/Plants" instance=ExtResource("5_tbgi4")]
 z_index = -1
@@ -270,55 +267,57 @@ position = Vector2(143, -391)
 [node name="Shrub13" parent="Objects/Plants" instance=ExtResource("5_tbgi4")]
 z_index = -1
 position = Vector2(-48, -397)
-coord = Vector2i(1, 1)
+coord = Vector2i(3, 1)
 
 [node name="Shrub14" parent="Objects/Plants" instance=ExtResource("5_tbgi4")]
 z_index = -1
 position = Vector2(-118, -428)
+coord = Vector2i(2, 0)
 
 [node name="Shrub15" parent="Objects/Plants" instance=ExtResource("5_tbgi4")]
 z_index = -1
 position = Vector2(-240, -363)
-coord = Vector2i(2, 1)
+coord = Vector2i(0, 1)
 
 [node name="Shrub16" parent="Objects/Plants" instance=ExtResource("5_tbgi4")]
 z_index = -1
 position = Vector2(-187, -235)
-coord = Vector2i(2, 0)
+coord = Vector2i(1, 1)
 
 [node name="Shrub17" parent="Objects/Plants" instance=ExtResource("5_tbgi4")]
 z_index = -1
 position = Vector2(-362, -229)
-coord = Vector2i(2, 1)
+coord = Vector2i(0, 1)
 
 [node name="Shrub18" parent="Objects/Plants" instance=ExtResource("5_tbgi4")]
 z_index = -1
 position = Vector2(-334, -301)
-coord = Vector2i(2, 0)
+coord = Vector2i(3, 0)
 
 [node name="Shrub19" parent="Objects/Plants" instance=ExtResource("5_tbgi4")]
 z_index = -1
 position = Vector2(-244, -156)
-coord = Vector2i(0, 1)
+coord = Vector2i(2, 0)
 
 [node name="Shrub20" parent="Objects/Plants" instance=ExtResource("5_tbgi4")]
 z_index = -1
 position = Vector2(-310, -68)
-coord = Vector2i(1, 1)
+coord = Vector2i(2, 0)
 
 [node name="Shrub21" parent="Objects/Plants" instance=ExtResource("5_tbgi4")]
 z_index = -1
 position = Vector2(-406, 18)
-coord = Vector2i(2, 1)
+coord = Vector2i(1, 1)
 
 [node name="Shrub22" parent="Objects/Plants" instance=ExtResource("5_tbgi4")]
 z_index = -1
 position = Vector2(-427, 63)
-coord = Vector2i(2, 0)
+coord = Vector2i(2, 1)
 
 [node name="Shrub23" parent="Objects/Plants" instance=ExtResource("5_tbgi4")]
 z_index = -1
 position = Vector2(-362, 56)
+coord = Vector2i(3, 0)
 
 [node name="Shrub24" parent="Objects/Plants" instance=ExtResource("5_tbgi4")]
 z_index = -1
@@ -328,70 +327,68 @@ coord = Vector2i(3, 1)
 [node name="Shrub25" parent="Objects/Plants" instance=ExtResource("5_tbgi4")]
 z_index = -1
 position = Vector2(-303, 197)
-coord = Vector2i(1, 1)
 
 [node name="Shrub26" parent="Objects/Plants" instance=ExtResource("5_tbgi4")]
 z_index = -1
 position = Vector2(-279, 147)
-coord = Vector2i(2, 1)
 
 [node name="Shrub27" parent="Objects/Plants" instance=ExtResource("5_tbgi4")]
 z_index = -1
 position = Vector2(-192, 83)
-coord = Vector2i(1, 0)
+coord = Vector2i(0, 1)
 
 [node name="Shrub28" parent="Objects/Plants" instance=ExtResource("5_tbgi4")]
 z_index = -1
 position = Vector2(-206, 33)
-coord = Vector2i(1, 1)
+coord = Vector2i(1, 0)
 
 [node name="Shrub29" parent="Objects/Plants" instance=ExtResource("5_tbgi4")]
 z_index = -1
 position = Vector2(-53, 87)
-coord = Vector2i(1, 0)
 
 [node name="Shrub30" parent="Objects/Plants" instance=ExtResource("5_tbgi4")]
 z_index = -1
 position = Vector2(79, 50)
-coord = Vector2i(3, 0)
 
 [node name="Shrub31" parent="Objects/Plants" instance=ExtResource("5_tbgi4")]
 z_index = -1
 position = Vector2(92, 76)
+coord = Vector2i(2, 1)
 
 [node name="Shrub32" parent="Objects/Plants" instance=ExtResource("5_tbgi4")]
 z_index = -1
 position = Vector2(19, 95)
-coord = Vector2i(3, 0)
+coord = Vector2i(2, 0)
 
 [node name="Shrub33" parent="Objects/Plants" instance=ExtResource("5_tbgi4")]
 z_index = -1
 position = Vector2(167, 24)
-coord = Vector2i(3, 0)
+coord = Vector2i(3, 1)
 
 [node name="Shrub34" parent="Objects/Plants" instance=ExtResource("5_tbgi4")]
 z_index = -1
 position = Vector2(177, 87)
-coord = Vector2i(1, 0)
+coord = Vector2i(2, 1)
 
 [node name="Shrub35" parent="Objects/Plants" instance=ExtResource("5_tbgi4")]
 z_index = -1
 position = Vector2(238, -96)
-coord = Vector2i(2, 0)
+coord = Vector2i(3, 0)
 
 [node name="Shrub36" parent="Objects/Plants" instance=ExtResource("5_tbgi4")]
 z_index = -1
 position = Vector2(-91, -105)
+coord = Vector2i(2, 0)
 
 [node name="Shrub37" parent="Objects/Plants" instance=ExtResource("5_tbgi4")]
 z_index = -1
 position = Vector2(-85, -213)
-coord = Vector2i(1, 1)
+coord = Vector2i(3, 1)
 
 [node name="Shrub38" parent="Objects/Plants" instance=ExtResource("5_tbgi4")]
 z_index = -1
 position = Vector2(-21, -177)
-coord = Vector2i(0, 1)
+coord = Vector2i(1, 0)
 
 [node name="Shrub39" parent="Objects/Plants" instance=ExtResource("5_tbgi4")]
 z_index = -1
@@ -401,24 +398,26 @@ coord = Vector2i(2, 0)
 [node name="Shrub40" parent="Objects/Plants" instance=ExtResource("5_tbgi4")]
 z_index = -1
 position = Vector2(-335, 255)
-coord = Vector2i(3, 1)
 
 [node name="Shrub41" parent="Objects/Plants" instance=ExtResource("5_tbgi4")]
 z_index = -1
 position = Vector2(-357, 339)
+coord = Vector2i(3, 1)
 
 [node name="Shrub42" parent="Objects/Plants" instance=ExtResource("5_tbgi4")]
 z_index = -1
 position = Vector2(-325, 361)
+coord = Vector2i(1, 0)
 
 [node name="Shrub43" parent="Objects/Plants" instance=ExtResource("5_tbgi4")]
 z_index = -1
 position = Vector2(-331, 438)
-coord = Vector2i(3, 1)
+coord = Vector2i(2, 0)
 
 [node name="Shrub44" parent="Objects/Plants" instance=ExtResource("5_tbgi4")]
 z_index = -1
 position = Vector2(-402, 502)
+coord = Vector2i(3, 1)
 
 [node name="Shrub45" parent="Objects/Plants" instance=ExtResource("5_tbgi4")]
 z_index = -1
@@ -428,22 +427,20 @@ coord = Vector2i(1, 1)
 [node name="Shrub46" parent="Objects/Plants" instance=ExtResource("5_tbgi4")]
 z_index = -1
 position = Vector2(-361, 667)
-coord = Vector2i(1, 0)
 
 [node name="Shrub47" parent="Objects/Plants" instance=ExtResource("5_tbgi4")]
 z_index = -1
 position = Vector2(-237, 588)
-coord = Vector2i(1, 1)
+coord = Vector2i(3, 0)
 
 [node name="Shrub48" parent="Objects/Plants" instance=ExtResource("5_tbgi4")]
 z_index = -1
 position = Vector2(-175, 510)
-coord = Vector2i(0, 1)
+coord = Vector2i(1, 0)
 
 [node name="Shrub49" parent="Objects/Plants" instance=ExtResource("5_tbgi4")]
 z_index = -1
 position = Vector2(-127, 622)
-coord = Vector2i(1, 1)
 
 [node name="Shrub50" parent="Objects/Plants" instance=ExtResource("5_tbgi4")]
 z_index = -1
@@ -458,11 +455,12 @@ coord = Vector2i(1, 1)
 [node name="Shrub52" parent="Objects/Plants" instance=ExtResource("5_tbgi4")]
 z_index = -1
 position = Vector2(30, 524)
+coord = Vector2i(2, 1)
 
 [node name="Shrub53" parent="Objects/Plants" instance=ExtResource("5_tbgi4")]
 z_index = -1
 position = Vector2(186, 516)
-coord = Vector2i(2, 1)
+coord = Vector2i(1, 1)
 
 [node name="Shrub54" parent="Objects/Plants" instance=ExtResource("5_tbgi4")]
 z_index = -1
@@ -472,89 +470,90 @@ coord = Vector2i(2, 0)
 [node name="Shrub55" parent="Objects/Plants" instance=ExtResource("5_tbgi4")]
 z_index = -1
 position = Vector2(289, 608)
-coord = Vector2i(3, 0)
+coord = Vector2i(2, 0)
 
 [node name="Shrub56" parent="Objects/Plants" instance=ExtResource("5_tbgi4")]
 z_index = -1
 position = Vector2(-100, 393)
-coord = Vector2i(2, 1)
+coord = Vector2i(2, 0)
 
 [node name="Shrub57" parent="Objects/Plants" instance=ExtResource("5_tbgi4")]
 z_index = -1
 position = Vector2(-116, 302)
-coord = Vector2i(1, 1)
+coord = Vector2i(0, 1)
 
 [node name="Shrub58" parent="Objects/Plants" instance=ExtResource("5_tbgi4")]
 z_index = -1
 position = Vector2(43, 292)
-coord = Vector2i(3, 1)
+coord = Vector2i(2, 1)
 
 [node name="Shrub59" parent="Objects/Plants" instance=ExtResource("5_tbgi4")]
 z_index = -1
 position = Vector2(132, 350)
-coord = Vector2i(2, 0)
+coord = Vector2i(3, 0)
 
 [node name="Shrub60" parent="Objects/Plants" instance=ExtResource("5_tbgi4")]
 z_index = -1
 position = Vector2(212, 344)
+coord = Vector2i(3, 1)
 
 [node name="Shrub61" parent="Objects/Plants" instance=ExtResource("5_tbgi4")]
 z_index = -1
 position = Vector2(298, 303)
-coord = Vector2i(3, 1)
+coord = Vector2i(2, 1)
 
 [node name="Shrub62" parent="Objects/Plants" instance=ExtResource("5_tbgi4")]
 z_index = -1
 position = Vector2(486, 382)
-coord = Vector2i(1, 1)
+coord = Vector2i(3, 0)
 
 [node name="Shrub63" parent="Objects/Plants" instance=ExtResource("5_tbgi4")]
 z_index = -1
 position = Vector2(548, 456)
+coord = Vector2i(3, 0)
 
 [node name="Shrub64" parent="Objects/Plants" instance=ExtResource("5_tbgi4")]
 z_index = -1
 position = Vector2(394, 420)
-coord = Vector2i(2, 1)
 
 [node name="Shrub65" parent="Objects/Plants" instance=ExtResource("5_tbgi4")]
 z_index = -1
 position = Vector2(511, 271)
+coord = Vector2i(2, 0)
 
 [node name="Shrub66" parent="Objects/Plants" instance=ExtResource("5_tbgi4")]
 z_index = -1
 position = Vector2(704, 208)
-coord = Vector2i(2, 1)
+coord = Vector2i(1, 1)
 
 [node name="Shrub67" parent="Objects/Plants" instance=ExtResource("5_tbgi4")]
 z_index = -1
 position = Vector2(516, 160)
-coord = Vector2i(1, 0)
 
 [node name="Shrub68" parent="Objects/Plants" instance=ExtResource("5_tbgi4")]
 z_index = -1
 position = Vector2(412, 178)
-coord = Vector2i(2, 1)
+coord = Vector2i(2, 0)
 
 [node name="Shrub69" parent="Objects/Plants" instance=ExtResource("5_tbgi4")]
 z_index = -1
 position = Vector2(377, 42)
-coord = Vector2i(3, 1)
+coord = Vector2i(3, 0)
 
 [node name="Shrub70" parent="Objects/Plants" instance=ExtResource("5_tbgi4")]
 z_index = -1
 position = Vector2(405, -28)
-coord = Vector2i(1, 0)
+coord = Vector2i(0, 1)
 
 [node name="Shrub71" parent="Objects/Plants" instance=ExtResource("5_tbgi4")]
 z_index = -1
 position = Vector2(442, -70)
-coord = Vector2i(0, 1)
+coord = Vector2i(2, 1)
 
 [node name="Shrub72" parent="Objects/Plants" instance=ExtResource("5_tbgi4")]
 z_index = -1
 position = Vector2(304, -93)
-coord = Vector2i(0, 1)
+coord = Vector2i(1, 1)
 
 [node name="Shrub73" parent="Objects/Plants" instance=ExtResource("5_tbgi4")]
 z_index = -1
@@ -564,70 +563,70 @@ coord = Vector2i(2, 0)
 [node name="Shrub74" parent="Objects/Plants" instance=ExtResource("5_tbgi4")]
 z_index = -1
 position = Vector2(639, -586)
-coord = Vector2i(1, 1)
+coord = Vector2i(1, 0)
 
 [node name="Shrub75" parent="Objects/Plants" instance=ExtResource("5_tbgi4")]
 z_index = -1
 position = Vector2(585, -632)
-coord = Vector2i(1, 1)
 
 [node name="Shrub76" parent="Objects/Plants" instance=ExtResource("5_tbgi4")]
 z_index = -1
 position = Vector2(661, -652)
-coord = Vector2i(3, 1)
+coord = Vector2i(0, 1)
 
 [node name="Shrub77" parent="Objects/Plants" instance=ExtResource("5_tbgi4")]
 z_index = -1
 position = Vector2(623, 696)
-coord = Vector2i(1, 0)
+coord = Vector2i(2, 1)
 
 [node name="Shrub78" parent="Objects/Plants" instance=ExtResource("5_tbgi4")]
 z_index = -1
 position = Vector2(583, 720)
-coord = Vector2i(1, 1)
+coord = Vector2i(0, 1)
 
 [node name="Shrub79" parent="Objects/Plants" instance=ExtResource("5_tbgi4")]
 z_index = -1
 position = Vector2(669, 753)
-coord = Vector2i(2, 0)
 
 [node name="Shrub80" parent="Objects/Plants" instance=ExtResource("5_tbgi4")]
 z_index = -1
 position = Vector2(645, 796)
+coord = Vector2i(1, 0)
 
 [node name="Shrub81" parent="Objects/Plants" instance=ExtResource("5_tbgi4")]
 z_index = -1
 position = Vector2(754, 748)
+coord = Vector2i(0, 1)
 
 [node name="Shrub82" parent="Objects/Plants" instance=ExtResource("5_tbgi4")]
 z_index = -1
 position = Vector2(-743, 410)
-coord = Vector2i(0, 1)
+coord = Vector2i(2, 1)
 
 [node name="Shrub83" parent="Objects/Plants" instance=ExtResource("5_tbgi4")]
 z_index = -1
 position = Vector2(-734, 331)
-coord = Vector2i(3, 0)
+coord = Vector2i(1, 0)
 
 [node name="Shrub84" parent="Objects/Plants" instance=ExtResource("5_tbgi4")]
 z_index = -1
 position = Vector2(-664, 350)
-coord = Vector2i(1, 0)
+coord = Vector2i(2, 1)
 
 [node name="Shrub85" parent="Objects/Plants" instance=ExtResource("5_tbgi4")]
 z_index = -1
 position = Vector2(-627, 338)
-coord = Vector2i(3, 1)
+coord = Vector2i(3, 0)
 
 [node name="Shrub86" parent="Objects/Plants" instance=ExtResource("5_tbgi4")]
 z_index = -1
 position = Vector2(-659, -388)
-coord = Vector2i(1, 0)
+coord = Vector2i(3, 0)
 
 [node name="Shrub87" parent="Objects/Plants" instance=ExtResource("5_tbgi4")]
 z_index = -1
 position = Vector2(-568, -428)
-coord = Vector2i(0, 1)
+coord = Vector2i(3, 1)
 
 [node name="Shrub88" parent="Objects/Plants" instance=ExtResource("5_tbgi4")]
 z_index = -1
@@ -637,12 +636,12 @@ coord = Vector2i(2, 1)
 [node name="Shrub89" parent="Objects/Plants" instance=ExtResource("5_tbgi4")]
 z_index = -1
 position = Vector2(-318, -706)
-coord = Vector2i(0, 1)
+coord = Vector2i(3, 1)
 
 [node name="Shrub90" parent="Objects/Plants" instance=ExtResource("5_tbgi4")]
 z_index = -1
 position = Vector2(-264, -731)
-coord = Vector2i(3, 0)
+coord = Vector2i(1, 0)
 
 [node name="Player" parent="Objects" instance=ExtResource("1_o5qli")]
 position = Vector2(33, 0)
@@ -652,7 +651,7 @@ metadata/_edit_lock_ = true
 rain_color = Color(0.15437707, 0.46983004, 0.75007766, 1)
 
 [node name="RippleGPUParticles2D" type="GPUParticles2D" parent="DayNight"]
-z_index = -1
+z_index = -2
 material = SubResource("CanvasItemMaterial_85g3d")
 emitting = false
 amount = 100
@@ -660,7 +659,7 @@ texture = ExtResource("3_tipki")
 process_material = SubResource("ParticleProcessMaterial_choun")
 
 [node name="RainDropGPUParticles2D" type="GPUParticles2D" parent="DayNight"]
-z_index = -1
+z_index = -2
 material = SubResource("CanvasItemMaterial_choun")
 emitting = false
 amount = 100
