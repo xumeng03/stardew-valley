@@ -6,6 +6,13 @@ var crop_info_scene = preload("res://scenes/UI/CropInfo.tscn")
 var previous_highlight_tile: Vector2i = Vector2i(-999, -999)
 var plant_grids: Array[Vector2i] = []
 
+func _ready() -> void:
+	var bed = get_node("House/BedStaticBody2D")
+	bed.next_day_signal.connect(func():
+		# print("next day")
+		get_node("DayNight").next_day()
+	)
+
 func cell_has_plant(grid: Vector2i) -> bool:
 	return grid in plant_grids
 
@@ -35,9 +42,10 @@ func _on_player_behavior_signal(bi: int, si: int, pos: Vector2) -> void:
 		var gress_tile_data = $Farm/GressTileMapLayer.get_cell_tile_data(grid) as TileData
 		var soil_tile_data = $Farm/SoilTileMapLayer.get_cell_tile_data(grid) as TileData
 		if not gress_tile_data and not soil_tile_data:
-			print("can fish here")
-		else:
-			print("can't fish here")
+			# print("can fish here")
+			$Objects/Player.start_fishing()
+		# else:
+		# 	print("can't fish here")
 	if bi == 5:
 		var tile_data = $Farm/SoilTileMapLayer.get_cell_tile_data(grid) as TileData
 		if tile_data and not cell_has_plant(grid):

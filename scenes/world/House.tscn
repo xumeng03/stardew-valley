@@ -1,10 +1,15 @@
-[gd_scene load_steps=12 format=4 uid="uid://calohtxnaln5p"]
+[gd_scene load_steps=20 format=4 uid="uid://calohtxnaln5p"]
 
 [ext_resource type="Texture2D" uid="uid://d0o0tkoeim77x" path="res://assets/world/walls_nofloor.png" id="1_4e2xq"]
 [ext_resource type="Script" uid="uid://dpl4j8k5hnie0" path="res://scenes/world/house.gd" id="1_nymn7"]
 [ext_resource type="Texture2D" uid="uid://daql7brp0cvq3" path="res://assets/world/walls_floor_tile.png" id="2_pn3k0"]
 [ext_resource type="PackedScene" uid="uid://7xnkjuv0scuv" path="res://scenes/world/tv.tscn" id="4_cwu3e"]
 [ext_resource type="Texture2D" uid="uid://cnce1mjljbnd0" path="res://assets/world/roof.png" id="4_oyjyh"]
+[ext_resource type="PackedScene" uid="uid://ceufh3d016742" path="res://scenes/world/bed.tscn" id="6_r15lg"]
+[ext_resource type="Texture2D" uid="uid://cld1esoq5y5fm" path="res://assets/world/plant.png" id="7_4vwmu"]
+[ext_resource type="Texture2D" uid="uid://cnca2e36xh345" path="res://assets/world/table.png" id="8_goklw"]
+[ext_resource type="Texture2D" uid="uid://1ighy3r8tu7o" path="res://assets/world/bookshelf.png" id="9_cpu8s"]
+[ext_resource type="Texture2D" uid="uid://1svegknlpogp" path="res://assets/world/carpet.png" id="9_goklw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oyjyh"]
 texture = ExtResource("2_pn3k0")
@@ -343,6 +348,15 @@ texture = ExtResource("4_oyjyh")
 [sub_resource type="TileSet" id="TileSet_r15lg"]
 sources/0 = SubResource("TileSetAtlasSource_cwu3e")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3fd2p"]
+size = Vector2(6, 19)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cjase"]
+size = Vector2(24, 17)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2lx8m"]
+size = Vector2(26, 19)
+
 [node name="House" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_nymn7")
@@ -374,6 +388,43 @@ collision_mask = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HouseArea2D"]
 polygon = PackedVector2Array(-78, -62, 62, -62, 62, 45, 0, 46, 0, 53, -15, 53, -15, 47, -79, 47)
+
+[node name="BedStaticBody2D" parent="." instance=ExtResource("6_r15lg")]
+position = Vector2(49, -43)
+
+[node name="PlantStaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(-44, -44)
+
+[node name="Sprite2D" type="Sprite2D" parent="PlantStaticBody2D"]
+texture = ExtResource("7_4vwmu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlantStaticBody2D"]
+shape = SubResource("RectangleShape2D_3fd2p")
+
+[node name="TableStaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(-9, -5)
+
+[node name="Sprite2D" type="Sprite2D" parent="TableStaticBody2D"]
+texture = ExtResource("8_goklw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TableStaticBody2D"]
+position = Vector2(0, -1.5)
+shape = SubResource("RectangleShape2D_cjase")
+
+[node name="CarpetSprite2D" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-9, 25)
+texture = ExtResource("9_goklw")
+
+[node name="BookshelfStaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(-16, -44)
+
+[node name="Sprite2D" type="Sprite2D" parent="BookshelfStaticBody2D"]
+texture = ExtResource("9_cpu8s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BookshelfStaticBody2D"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_2lx8m")
 
 [connection signal="body_entered" from="HouseArea2D" to="." method="_on_house_area_2d_body_entered"]
 [connection signal="body_exited" from="HouseArea2D" to="." method="_on_house_area_2d_body_exited"]

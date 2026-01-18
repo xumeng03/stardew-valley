@@ -22,11 +22,11 @@ func _ready() -> void:
 	print("door cell: ", door_cell)
 
 
-func _on_house_area_2d_body_entered(body: Node2D) -> void:
+func _on_house_area_2d_body_entered(_body: Node2D) -> void:
 	inside_house = true
-	print("body entered house: ", body.name)
+	# print("body entered house: ", body.name)
 
 
-func _on_house_area_2d_body_exited(body: Node2D) -> void:
+func _on_house_area_2d_body_exited(_body: Node2D) -> void:
 	inside_house = false
-	print("body exited house", body.name)
+	# print("body exited house", body.name)

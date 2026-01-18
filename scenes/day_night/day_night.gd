@@ -53,6 +53,9 @@ func _physics_process(_delta: float) -> void:
 
 
 func _on_timer_timeout() -> void:
+	next_day()
+
+func next_day() -> void:
 	timer.stop()
 	is_transitioning = true
 	var shader_material = player.get_node("ColorRect").material as ShaderMaterial

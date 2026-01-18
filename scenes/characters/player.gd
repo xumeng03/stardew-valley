@@ -30,6 +30,8 @@ func _physics_process(_delta: float) -> void:
 		process_behavior()
 		# character movement
 		process_move()
+	else:
+		process_fish_behavior()
 	move_signal.emit(position + last_direction * 16 + Vector2(0, 2))
 
 func process_input():
@@ -52,6 +54,7 @@ func process_move_state_machine():
 		move_state_machine.travel("RunBlendSpace2D")
 		animation_tree.set("parameters/MoveStateMachine/RunBlendSpace2D/blend_position", direction)
 		animation_tree.set("parameters/MoveStateMachine/IdleBlendSpace2D/blend_position", direction)
+		animation_tree.set("parameters/FishBlendSpace2D/blend_position", direction)
 		for animation in DATA.ANIMATIONS:
 			animation_tree.set("parameters/BehaviorStateMachine/" + animation.capitalize() + "BlendSpace2D/blend_position", direction)
 	else:
@@ -64,10 +67,14 @@ func process_behavior_state_machine():
 func process_behavior():
 	if Input.is_action_just_pressed(DATA.ACTIONS_ACTION):
 		if $RayCast2D.is_colliding():
-			print("colliding", $RayCast2D.get_collider().name)
+			# print("colliding", $RayCast2D.get_collider().name)
 			$RayCast2D.get_collider().interact(self)
 		else:
 			animation_tree.set("parameters/OneShot/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
+
+func process_fish_behavior():
+	if Input.is_action_just_pressed(DATA.ACTIONS_ACTION):
+		print("process fish behavior")
 
 func process_move():
 	velocity = direction * speed
@@ -75,6 +82,10 @@ func process_move():
 		var ray_direction = Vector2(direction.x, 0) if direction.x != 0 else Vector2(0, direction.y)
 		$RayCast2D.target_position = ray_direction.normalized() * 20
 	move_and_slide()
+
+func start_fishing():
+	print("start fishing")
+	animation_tree.set("parameters/FishBlend2/blend_amount", 1)
 
 func _on_animation_tree_animation_started(_anim_name: StringName) -> void:
 	can_move = false
