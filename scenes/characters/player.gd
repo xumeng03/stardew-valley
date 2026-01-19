@@ -74,7 +74,8 @@ func process_behavior():
 
 func process_fish_behavior():
 	if Input.is_action_just_pressed(DATA.ACTIONS_ACTION):
-		print("process fish behavior")
+		# print("process fish behavior")
+		$FishGame.action()
 
 func process_move():
 	velocity = direction * speed
@@ -85,7 +86,13 @@ func process_move():
 
 func start_fishing():
 	print("start fishing")
+	$FishGame.start_fish_game()
 	animation_tree.set("parameters/FishBlend2/blend_amount", 1)
+
+func stop_fishing():
+	print("stop fishing")
+	can_move = true
+	animation_tree.set("parameters/FishBlend2/blend_amount", 0)
 
 func _on_animation_tree_animation_started(_anim_name: StringName) -> void:
 	can_move = false

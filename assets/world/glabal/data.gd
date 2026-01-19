@@ -21,7 +21,6 @@ const ANIMATION_FISH := "fish"
 const ANIMATION_SEED := "seed"
 const ANIMATIONS = [ANIMATION_AXE, ANIMATION_HOE, ANIMATION_SWORD, ANIMATION_WATER, ANIMATION_FISH, ANIMATION_SEED]
 
-
 # tool textures
 const TEXTURE_AXE := preload("res://assets/tools/axe.png")
 const TEXTURE_HOE := preload("res://assets/tools/hoe.png")
